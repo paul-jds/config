@@ -26,4 +26,3 @@ call plug#end()
 
 
 autocmd VimEnter * NERDTree         " Autostart nerdtree
-test
