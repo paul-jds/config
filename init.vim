@@ -25,4 +25,5 @@ call plug#begin("~/.vim/autoload/plugged")
 call plug#end()
 
 
-autocmd VimEnter * NERDTree         " Autostart nerdtree  
+autocmd VimEnter * NERDTree         " Autostart nerdtree
+test
