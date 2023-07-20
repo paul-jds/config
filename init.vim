@@ -45,9 +45,17 @@ Plug 'fatih/vim-go'
 Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'arcticicestudio/nord-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
+
+colorscheme nord
 
 " move between panes to left/bottom/top/right
  nnoremap <C-h> <C-w>h
  nnoremap <C-j> <C-w>j
  nnoremap <C-k> <C-w>k
  nnoremap <C-l> <C-w>l
+
+
+
