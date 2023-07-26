@@ -14,11 +14,12 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: "Noto Sans Mono"
+    family: "UbuntuMono Nerd Font"
+  size: 13.5
 colors:
   # Default colors
   primary:
-    background: '#1d2021'
+    background: '#1d2021' 
     foreground: '#d5c4a1'
 
     # Bright and dim foreground colors
@@ -37,8 +38,8 @@ colors:
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
   cursor:
-    text: '#1d2021'
-    cursor: '#d5c4a1'
+    text: '#272b33'
+    cursor: '#fecc00'
 
   # Vi mode cursor colors
   #
@@ -104,7 +105,10 @@ colors:
   #selection:
   #  text: CellBackground
   #  background: CellForeground
-
+  #
+  #
+  
+  
   # Normal colors
   normal:
     black:   '#1d2021'
@@ -125,8 +129,7 @@ colors:
     blue:    '#83a598'
     magenta: '#d3869b'
     cyan:    '#8ec07c'
-    white:   '#fbf1c7'
-
+    white:   '#fbf1c7' 
   # Dim colors
   #
   # If the dim colors are not set, they will be calculated automatically based
@@ -149,13 +152,15 @@ colors:
   # Example:
   #   `- { index: 16, color: '#ff00ff' }`
   #
-  indexed_colors:
-    - { index: 16, color: '#fe8019' }
-    - { index: 17, color: '#d65d0e' }
-    - { index: 18, color: '#3c3836' }
-    - { index: 19, color: '#504945' }
-    - { index: 20, color: '#bdae93' }
-    - { index: 21, color: '#ebdbb2' }
+
+    indexed_colors:
+      - { index: 16, color: '#fe8019' }
+      - { index: 17, color: '#d65d0e' }
+      - { index: 18, color: '#3c3836' }
+      - { index: 19, color: '#504945' }
+      - { index: 20, color: '#bdae93' }
+      - { index: 21, color: '#ebdbb2' }
+
 key_bindings:
   #- { key: Paste,                                       action: Paste          }
   #- { key: Copy,                                        action: Copy           }
