@@ -1,2 +1,4 @@
-export PS1='\[\033[01;33m\]\w\[\033[00m\]\n\t \[\033[01;36m\]\u\[\033[00m\]@\h\[\033[01;32m\]\$\[\033[00m\]'
-alias ls='ls -G'
+export CLICOLOR=1
+export PS1='\u@\h:\w\$ ' 
+export EDITOR='vim'
+. "$HOME/.cargo/env"
