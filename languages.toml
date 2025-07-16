@@ -1,0 +1,168 @@
+# Go
+[[language]]
+name = "go"
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go"]
+roots = ["go.mod", "go.sum"]
+auto-format = true
+comment-token = "//"
+language-servers = ["gopls"]
+indent = { tab-width = 4, unit = "\t" }
+
+[language-server.gopls]
+command = "gopls"
+args = ["serve"]
+
+# Python
+[[language]]
+name = "python"
+scope = "source.python"
+injection-regex = "python"
+file-types = ["py", "pyi", "py3", "pyw", "ptl", "rpy", "cpy", "ipy", "pyt"]
+shebangs = ["python", "python3", "python2"]
+roots = ["pyproject.toml", "setup.py", "setup.cfg", "requirements.txt", "Pipfile", "pyrightconfig.json"]
+auto-format = true
+comment-token = "#"
+language-servers = ["pylsp"]
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.pylsp]
+command = "pylsp"
+args = []
+
+# Terraform
+[[language]]
+name = "terraform"
+scope = "source.terraform"
+injection-regex = "terraform"
+file-types = ["tf", "tfvars"]
+roots = [".terraform", "terraform.tfstate", "terraform.tfstate.backup"]
+auto-format = true
+comment-token = "#"
+language-servers = ["terraform-ls"]
+indent = { tab-width = 2, unit = "  " }
+
+[language-server.terraform-ls]
+command = "terraform-ls"
+args = ["serve"]
+
+# Bash
+[[language]]
+name = "bash"
+scope = "source.bash"
+injection-regex = "(shell|bash|zsh|sh)"
+file-types = ["sh", "bash", "zsh", ".bash_login", ".bash_logout", ".bash_profile", ".bashrc", ".profile", ".zshrc", ".zsh", ".zshenv", ".zlogin", ".zlogout", ".zprofile"]
+shebangs = ["sh", "bash", "zsh"]
+comment-token = "#"
+language-servers = ["bash-language-server"]
+indent = { tab-width = 2, unit = "  " }
+
+[language-server.bash-language-server]
+command = "bash-language-server"
+args = ["start"]
+
+# TypeScript
+[[language]]
+name = "typescript"
+scope = "source.ts"
+injection-regex = "(ts|typescript)"
+file-types = ["ts", "mts", "cts"]
+roots = ["package.json", "tsconfig.json", "jsconfig.json", "deno.json", "deno.jsonc"]
+auto-format = true
+comment-token = "//"
+language-servers = ["typescript-language-server"]
+indent = { tab-width = 2, unit = "  " }
+
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+# JavaScript
+[[language]]
+name = "javascript"
+scope = "source.js"
+injection-regex = "(js|javascript)"
+file-types = ["js", "mjs", "cjs", "jsx"]
+roots = ["package.json", "jsconfig.json", "deno.json", "deno.jsonc"]
+auto-format = true
+comment-token = "//"
+language-servers = ["typescript-language-server"]
+indent = { tab-width = 2, unit = "  " }
+
+# YAML
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+injection-regex = "yaml"
+file-types = ["yml", "yaml"]
+roots = []
+auto-format = true
+comment-token = "#"
+language-servers = ["yaml-language-server"]
+indent = { tab-width = 2, unit = "  " }
+
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
+
+# C
+[[language]]
+name = "c"
+scope = "source.c"
+injection-regex = "c"
+file-types = ["c", "h"]
+roots = ["Makefile", "makefile", "CMakeLists.txt", "meson.build", "configure.ac"]
+auto-format = true
+comment-token = "//"
+language-servers = ["clangd"]
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.clangd]
+command = "clangd"
+args = ["--background-index", "--clang-tidy", "--completion-style=detailed"]
+
+# C++
+[[language]]
+name = "cpp"
+scope = "source.cpp"
+injection-regex = "cpp"
+file-types = ["cpp", "cc", "cxx", "c++", "hpp", "hh", "hxx", "h++", "ipp", "tpp", "txx", "ixx", "cppm"]
+roots = ["Makefile", "makefile", "CMakeLists.txt", "meson.build", "configure.ac"]
+auto-format = true
+comment-token = "//"
+language-servers = ["clangd"]
+indent = { tab-width = 4, unit = "    " }
+
+# Formatter configurations
+[language-server.gopls.config]
+"ui.diagnostic.staticcheck" = true
+"ui.completion.usePlaceholders" = true
+"ui.inlayhint.hints" = { "assignVariableType" = true, "compositeLiteralFields" = true, "compositeLiteralTypes" = true, "constantValues" = true, "functionTypeParameters" = true, "parameterNames" = true, "rangeVariableTypes" = true }
+
+[language-server.pylsp.config.pylsp]
+plugins.pycodestyle.enabled = true
+plugins.pyflakes.enabled = true
+plugins.pylint.enabled = true
+plugins.rope_completion.enabled = true
+plugins.yapf.enabled = true
+
+[language-server.terraform-ls.config]
+"terraform.experimental.prefillRequiredFields" = true
+
+[language-server.typescript-language-server.config]
+"typescript.inlayHints.includeInlayParameterNameHints" = "all"
+"typescript.inlayHints.includeInlayFunctionParameterTypeHints" = true
+"typescript.inlayHints.includeInlayVariableTypeHints" = true
+"typescript.inlayHints.includeInlayPropertyDeclarationTypeHints" = true
+"typescript.inlayHints.includeInlayFunctionLikeReturnTypeHints" = true
+
+[language-server.yaml-language-server.config.yaml]
+schemas = { "https://json.schemastore.org/github-workflow.json" = ".github/workflows/*.yml" }
+format.enable = true
+validate = true
+hover = true
+completion = true
+
+[language-server.clangd.config]
+"clangd.arguments" = ["--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=iwyu"]:w
