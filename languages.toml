@@ -1,3 +1,6 @@
+# Helix Editor Languages Configuration
+# Place this file in your Helix config directory: ~/.config/helix/languages.toml
+
 # Go
 [[language]]
 name = "go"
@@ -134,6 +137,22 @@ comment-token = "//"
 language-servers = ["clangd"]
 indent = { tab-width = 4, unit = "    " }
 
+# Rust
+[[language]]
+name = "rust"
+scope = "source.rust"
+injection-regex = "rust"
+file-types = ["rs"]
+roots = ["Cargo.toml", "Cargo.lock"]
+auto-format = true
+comment-token = "//"
+language-servers = ["rust-analyzer"]
+indent = { tab-width = 4, unit = "    " }
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+args = []
+
 # Formatter configurations
 [language-server.gopls.config]
 "ui.diagnostic.staticcheck" = true
@@ -165,4 +184,12 @@ hover = true
 completion = true
 
 [language-server.clangd.config]
-"clangd.arguments" = ["--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=iwyu"]:w
+"clangd.arguments" = ["--background-index", "--clang-tidy", "--completion-style=detailed", "--header-insertion=iwyu"]
+
+[language-server.rust-analyzer.config]
+"rust-analyzer.cargo.buildScripts.enable" = true
+"rust-analyzer.procMacro.enable" = true
+"rust-analyzer.diagnostics.disabled" = ["unresolved-proc-macro"]
+"rust-analyzer.inlayHints.chainingHints.enable" = true
+"rust-analyzer.inlayHints.parameterHints.enable" = true
+"rust-analyzer.inlayHints.typeHints.enable" = true
